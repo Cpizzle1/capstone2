@@ -117,10 +117,12 @@ def city_weather_clean(df):
     df['humdity1']= results
     df['humdity1'] = df['humdity1'].astype(float)
     
+    
+    
     del df['hour']
     del df['Date']
     del df['new_hour_date']
-    del df['New_datetime2']
+    del df['New_datetime']
     del df['time_rounded']
     del df['time_rounded2']
     del df['time_rounded4']
