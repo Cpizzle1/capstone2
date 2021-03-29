@@ -1,3 +1,6 @@
+
+![Banner](images/Banner.png)
+
 # capstone2
 capstone2
 
@@ -18,3 +21,11 @@ In this study we will be trying to find underlying features in
 ## Expl
 
 The Molecular Taxonomy of Breast Cancer International Consortium (METABRIC) is an organization hosting a database  with clinical and genetic data from over 1,980 primary breast cancer samples.
+
+![mutation count](images/age_at_diagnosis_density.png)
+
+![cancer death probabilty](images/probability_density_cancer_death_non_cancer_death.png)
+
+![mutation count](images/Mutation_count.png)
+
+![survival plot](images/kmf_survival_plt.png)
