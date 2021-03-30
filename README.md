@@ -15,18 +15,18 @@ Breast Cancer is the most common cancer maligancy in women around the world and 
 *could save costs of treatment if high risk individuals are identified early and a proactive treament plan can be made.
 *breast cancer data could provide insights into other forms of cancer
 
-In this study we will be trying to find underlying features in 
+In this study we will be trying to find gene expression profiles in patients with poor outcomes (death by cancer) 
 
 
 ## Exploratory Data Analysis
 
-The Molecular Taxonomy of Breast Cancer International Consortium (METABRIC) is an organization hosting a database  with clinical and genetic data from 1,904 primary breast cancer samples.  Genes are listed as feature columns and Z-scores of rRNA expression levels are listed as values. In this study, we will be focusing on the mRNA expression levels
+The Molecular Taxonomy of Breast Cancer International Consortium (METABRIC) is an organization hosting a database  with clinical and genetic data from 1,904 primary breast cancer samples.  Genes are listed as feature columns and Z-scores of mRNA expression levels are listed as values. In this study, we will be focusing on the mRNA expression levels
 
 
 
 ![EDA dataframe](images/EDA_df.png)
 
-Clinical information such as treatment and age at diagnosis are also features.
+Clinical information such as treatment and age at diagnosis are also features. 
 
 ![Age at diagnosis](images/age_at_diagnosis_density.png)
 
@@ -34,12 +34,39 @@ Of the 1,904 patients, 622 were classfied as deceased due to cancer. and as a gr
 
 ![cancer death probabilty](images/probability_density_cancer_death_non_cancer_death.png)
 
+Also noteworthy, these tend to be multi-hit events ie mutiple mutations
 
 ![mutation count](images/Mutation_count.png)
 
+Surival of all 1,904 patients
+
 ![survival plot](images/kmf_survival_plt.png)
 
+
+
 ![classification report](images/classification_report_of_models_v1.png)
+
+
+![feature importance random forest](images/random_forest_feature_importance.png)
+![feature importance Gradient Boost](images/gradient_boost_feature_importance.png)
+
+##Feature 120 
+Feature 120 is highest importance in 2 highest recall scoring models. Gradient Boosting and Random Forest
+
+![feature importance random forest lst](images/random_forest_feature_importantance_lst.png)
+
+![feature importance gradient boots lst](images/gradient_boost_feature_importance_lst.png)
+
+Based on our modeling, this gene is a strong candidate to maximize the benefit from those individuals with poor prognosis and outlooks.
+![feature importance aruka gene](images/Aruka_gene.png)
+
+
+
+
+
+
+
+
 
 
 
