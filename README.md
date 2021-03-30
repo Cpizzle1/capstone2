@@ -88,13 +88,14 @@ Scrum Group 4 and the whole of Denver DSI
 
 [life-lines-install](https://lifelines.readthedocs.io/en/latest/fitters/univariate/KaplanMeierFitter.html?highlight=KaplanMeierFitter)
 
-[wikipedia]
+[wikipedia](https://en.wikipedia.org/wiki/Aurora_A_kinase)
 
 [kaggle](https://www.kaggle.com/)
 
 [stack_overflow](https://stackoverflow.com/)
 
 [machine-mastert](https://machinelearningmastery.com)
+[medium_banner](https://en.wikipedia.org/wiki/Aurora_A_kinase)
 
 
 
