@@ -38,17 +38,33 @@ Patients tend to be multi-hit events in both classse (mutiple mutations)
 
 Surival of all 1,904 patients
 
-![survival plot](images/kmf_survival_plt.png)
+![Random Forrest ROC](images/Random_Forrest_ROC_curve.png)
+
+Recall score of 0.62
+
+![Gradient Boost ROC](images/Gradient_boost_ROC_curve.png)
+
+Recall score of 0.58
+
+
+![logistic ROC](images/Logistic_Regression_ROC_curve.png)
+
+Recall score of 0.66 
+Best Parameters for Model: penalty = l1, class weight = 'balanced', C = 0.03077
+Best Score for LogisticRegression(): 0.6678
+
+With threshold value lowered to 0.3, recall score climbs to 94%
+
+![Gene Weights](images/Gene_Betas.png)
+
+STAT5B gene could be invovled in a protective pathway in breast Cancer
+BAD gene (bcl2) involved in apoptosis and has been a gene of interest for sometime.
 
 
 
-![classification report](images/classification_report_of_models_v1.png)
 
 
-![feature importance random forest](images/random_forest_feature_importance.png)
-![feature importance Gradient Boost](images/gradient_boost_feature_importance.png)
-
-## Conclusions
+## Other Findings
 
 * Feature 120 
 Feature 120 is highest importance in 2 highest recall scoring models. Gradient Boosting and Random Forest
