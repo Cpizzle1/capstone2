@@ -1,49 +1,20 @@
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.ensemble import GradientBoostingClassifier
-from sklearn.model_selection import train_test_split, cross_val_score
-from sklearn.model_selection import GridSearchCV, RandomizedSearchCV
-from sklearn.metrics import mean_squared_error, r2_score, make_scorer, roc_auc_score, roc_curve, auc
-import matplotlib.pyplot as plt
-plt.style.use('ggplot')
+from sklearn.model_selection import GridSearchCV, RandomizedSearchCV, train_test_split
+from sklearn.metrics import  roc_auc_score, roc_curve, auc,  accuracy_score,f1_score, accuracy_score, precision_score, recall_score
 import numpy as np
 import pandas as pd 
-
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-
-from sklearn.decomposition import PCA
-from sklearn.linear_model import LogisticRegression,LogisticRegressionCV
-from sklearn.model_selection import RandomizedSearchCV,GridSearchCV
-from sklearn.ensemble import GradientBoostingRegressor, RandomForestClassifier,GradientBoostingClassifier
-from sklearn.model_selection import KFold, train_test_split
-from sklearn.metrics import r2_score, median_absolute_error, mean_absolute_error, accuracy_score, f1_score,accuracy_score
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.tree import DecisionTreeRegressor
-from sklearn.model_selection import train_test_split, cross_val_score
-
-from sklearn.svm import SVC
-
+from sklearn.linear_model import LogisticRegression,LogisticRegressionCV, SGDClassifier
+from sklearn.ensemble import GradientBoostingRegressor, RandomForestClassifier,GradientBoostingClassifier, AdaBoostClassifier
 from sklearn import svm
-from sklearn.metrics import accuracy_score, precision_score, recall_score
+from sklearn.tree import DecisionTreeClassifier
 import pickle
 
-
-import pandas as pd
-import numpy as np
-from sklearn.linear_model import LogisticRegression, SGDClassifier
-from sklearn.metrics import recall_score, precision_score, roc_curve, auc, make_scorer, accuracy_score
-from sklearn.model_selection import train_test_split, GridSearchCV
-from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
-from collections import defaultdict
 # from roc import plot_roc
+
 import matplotlib.pyplot as plt
-from scipy import interp
-from sklearn.model_selection import KFold
-from sklearn.preprocessing import StandardScaler
-from sklearn.decomposition import PCA
+
+
 from sklearn.svm import SVC
-from sklearn.tree import DecisionTreeClassifier
+
 
 
 
@@ -73,13 +44,13 @@ if __name__ == '__main__':
 
     X_train = pd.read_csv('/Users/cp/Documents/dsi/capstone2/capstone2/data/rna_jupyternotebook_df_wednesday.csv')
     y_train = pd.read_csv('/Users/cp/Documents/dsi/capstone2/capstone2/data/target_death_short_col.csv')
-    # y_train.ravel()
+ 
     y_train = np.array(y_train).reshape(-1)
 
     logistic2_regression_grid = {'C':[0.0305,0.03055, 0.03060, 0.03065, 0.0307, 0.03075, 0.03077]
 #                        ,'cv':[4]
                        ,'solver':['liblinear']#'lbfgs',
-#                        ,'max_iter' : [50]
+
                        ,'class_weight':['balanced']
                        ,'penalty':['l1']} #, 'l2', 'elasticnet'
 
@@ -123,5 +94,6 @@ if __name__ == '__main__':
 
     results = optimize_model2_randomCV(LogisticRegression(), logistic2_regression_grid, X_train, y_train, scoring= 'roc_auc')
 
-    print(y_train.shape)
+
+
 
