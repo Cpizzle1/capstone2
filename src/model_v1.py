@@ -1,5 +1,5 @@
 from sklearn.model_selection import GridSearchCV, RandomizedSearchCV, train_test_split
-from sklearn.metrics import  roc_auc_score, roc_curve, auc,  accuracy_score,f1_score, accuracy_score, precision_score, recall_score
+from sklearn.metrics import  roc_auc_score, roc_curve, auc,  accuracy_score,f1_score, accuracy_score, precision_score, recall_score, classification_report
 import numpy as np
 import pandas as pd 
 from sklearn.linear_model import LogisticRegression,LogisticRegressionCV, SGDClassifier
@@ -37,7 +37,10 @@ def best_model_predictor(model, X_test, y_test):
 
     # logistic2_best_model = logistic2_randomsearch.best_estimator_
     y_hats = model.predict(X_test)
-    print(f"{moodel} ROC Score = {roc_auc_score(y_test, y_hats):.3f}")
+    print(f"{model} ROC Score = {roc_auc_score(y_test, y_hats):.3f}")
+    print(f"{model} F1 Score = {f1_score(y_test, y_hats):.3f}")
+    print(f"{model} Accuracy Score = {accuracy_score(y_test, y_hats):.3f}")
+    print(classification_report(y_test, y_hats))
 
 
 
@@ -92,7 +95,7 @@ if __name__ == '__main__':
 
     
     results = optimize_model2_randomCV(LogisticRegression(), logistic2_regression_grid, X_train, y_train, scoring= 'roc_auc')
-    
+    best_model_predictor(results, X_test, y_test)
     # results = optimize_model2_randomCV(GradientBoostingClassifier(), gradient_boosting_grid, X_train, y_train, scoring= 'roc_auc')
     
     # results = optimize_model2_randomCV(RandomForestClassifier(), random_forest_grid, X_train, y_train, scoring= 'roc_auc')
