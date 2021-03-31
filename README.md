@@ -58,6 +58,8 @@ With threshold value lowered to 0.3, recall score climbs to 94%
 ![Gene Weights](images/Gene_Betas.png)
 
 STAT5B gene could be invovled in a protective pathway in breast Cancer
+
+
 BAD gene (bcl2) involved in apoptosis and has been a gene of interest for sometime.
 
 
@@ -71,9 +73,9 @@ Feature 120 is highest importance in 2 highest recall scoring models. Gradient B
 
 
 
-![feature importance random forest lst](images/random_forest_feature_importantance_lst.png)
+![feature importance random forest lst](images/random_forest_feature_importance.png)
 
-![feature importance gradient boots lst](images/gradient_boost_feature_importance_lst.png)
+![feature importance gradient boots lst](images/gradient_boost_feature_importance.png)
 
 Based on our modeling, this gene is a strong candidate to maximize the benefit from those individuals with poor prognosis and outlooks.
 
