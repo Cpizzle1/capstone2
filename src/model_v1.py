@@ -80,7 +80,7 @@ def roc_curve_grapher(model, X_test ,y_test):
     plt.ylabel('True Positive Rate')
     plt.suptitle('Model ROC curve', fontsize=20)
     plt.legend()
-    plt.savefig("Logistic Regression_ROC_curve.png", dpi=200)
+    # plt.savefig("Logistic Regression_ROC_curve.png", dpi=200)
     plt.show()
 
 def beta_grapher_for_log_regressors_VIF_version(df, model):
@@ -119,9 +119,9 @@ def threshold_recall_scorer(model, threshold_list):
     for threshold in threshold_list:
         yhat_probs = model.predict_proba(X_test)[:,1]
         preds = np.where(yhat_probs > threshold, 1, 0)
-        results[f'threshold {threshold}'] = [('F1 Score',round(f1_score(y_test,preds), 2)),
+        results[f'threshold {threshold}'] = [('F1 Score',round(f1_score(y_test,preds), 2)), 
                                         ('Accuracy Score', round(accuracy_score(y_test,preds),2)),
-                                        ('AUC Score', round(roc_auc_score(y_test,preds),2)),
+                                        ('AUC Score', round(roc_auc_score(y_test,preds),2)),\
                                         ('Recall Score', round(recall_score(y_test,preds),2))]
     print(results)
 
@@ -192,8 +192,8 @@ if __name__ == '__main__':
     roc_curve_grapher(results, X_test ,y_test)
     # beta_grapher_for_log_regressors_VIF_version(X_train, results)
     
-    # thresholds = [.2, .25, .3, .33, .35, .37, .38]
-    # threshold_recall_scorer(results, thresholds)
+    thresholds = [.2, .25, .3, .33, .35, .37, .38, 0.5]
+    threshold_recall_scorer(results, thresholds)
 
 
 
