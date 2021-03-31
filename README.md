@@ -28,11 +28,11 @@ Clinical information such as treatment and age at diagnosis are also features.
 
 ![Age at diagnosis](images/age_at_diagnosis_density.png)
 
-Of the 1,904 patients, 622 were classfied as deceased due to cancer. and as a group had a lower time of survival after diagnosis.
+Of the 1,904 patients, 622 were classfied as deceased due to cancer, and as a group had a lower time of survival after diagnosis.
 
 ![cancer death probabilty](images/probability_density_cancer_death_non_cancer_death.png)
 
-Patients tend to be multi-hit events  (mutiple mutations)
+Patients tend to be multi-hit events in both classse (mutiple mutations)
 
 ![mutation count](images/Mutation_count.png)
 
