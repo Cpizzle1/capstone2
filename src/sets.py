@@ -44,20 +44,7 @@ def mutant_list_maker(df):
             lst.append(col)
     return lst
 
-# def non_numerical_column_separator(df):
-#     """[returns list of columns that a]
 
-#     Args:
-#         df ([type]): [description]
-
-#     Returns:
-#         [type]: [description]
-#     """
-#     lst = []
-#     for col in df.columns:
-#         if col[0]type(i) =='str':
-#             lst.append(i)
-#     return lst
 
 def change_cols_to_floats(dataframe,lst):
     """[Takes dataframe and list and turns columns of dataframe in list to floats]
@@ -69,7 +56,6 @@ def change_cols_to_floats(dataframe,lst):
     Returns:
         [pandas dataframe]: [converted to floats dataframe]
     """
-    
     for i in lst:
 
         dataframe[i] = dataframe[i].astype(float)

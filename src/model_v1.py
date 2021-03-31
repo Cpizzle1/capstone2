@@ -20,6 +20,18 @@ from sklearn.svm import SVC
 
 
 def optimize_model2_randomCV(model, grid_params, X_train, y_train, scoring):
+    """[Takes a model in, grid parameters, X and y values returns  best model found using the input parameters]
+
+    Args:
+        model ([Classifcation model sklearn]): [Logistic Regression, Random Forrest, Gradient Boost, and others]
+        grid_params ([dictionary]): [keys are strings of parater, values are list of values to try]
+        X_train ([Pandas dataframe]): [training feature data]
+        y_train ([numpy array]): [array of target values]
+        scoring ([scoring type to measure]): [sklearn scoring options for given model]
+
+    Returns:
+        [type]: [description]
+    """
 
     model_search = RandomizedSearchCV(model
                                         ,grid_params
@@ -34,6 +46,13 @@ def optimize_model2_randomCV(model, grid_params, X_train, y_train, scoring):
     return model_search.best_estimator_
 
 def best_model_predictor(model, X_test, y_test):
+    """[returns Analysis of model on test set or valudation set]
+
+    Args:
+        model ([sklearn classifer model]): [Logistic regression, Random Forrest, Gradient Boosting, etc]
+        X_test ([Pandas dataframe]): [Test feature data]
+        y_test ([numpy array]): [target valudation data]
+    """
 
     # logistic2_best_model = logistic2_randomsearch.best_estimator_
     y_hats = model.predict(X_test)
@@ -44,6 +63,14 @@ def best_model_predictor(model, X_test, y_test):
 
 
 def roc_curve_grapher(model, X_test ,y_test):
+    """[Makes ROC curve graph given model and data]
+
+    Args:
+        model ([SKlearn classifer model]): [Logistic regression, Random Forrest, Gradient Boosting, etc]]
+        X_test ([Pandas dataframe]): [Test feature data]
+        y_test ([numpy array]): [target valudation data]
+    """
+
     yhat = model.predict_proba(X_test)
     yhat = yhat[:, 1]
     fpr, tpr, thresholds = roc_curve(y_test, yhat)
@@ -56,6 +83,35 @@ def roc_curve_grapher(model, X_test ,y_test):
     # plt.savefig("Logistic Regression_ROC_curve.png", dpi=200)
     plt.show()
 
+def beta_grapher_for_log_regressors_VIF_version(df, model):
+    """[graphs Model coefficents of Lasso regression for intpretation]
+
+    Args:
+        df ([Training features dataframe]): [X_train information use to create model]
+        model ([Lasso Regression SKLearn model]): [logisticRegressor w/ penalty = l1]
+    """
+    lst_coefs = []
+    for name, coef in zip(df.columns[1:], model.coef_[0]):
+        lst_coefs.append((name, coef))
+       
+
+    vif_dict = {}
+    for i in lst_coefs:
+        if i[1] != 0:
+            vif_dict[i[0]] = i[1]
+    vif_df_ordered = pd.DataFrame.from_dict(vif_dict, orient='index')
+    vif_df_ordered.sort_values(by =0, inplace = True)
+    vif_df_ordered[1] = vif_df_ordered.index
+    vif_df_ordered.plot.bar(figsize = (16,10))
+    vif_df_ordered.plot(legend=None)
+    plt.xlabel("Genes", fontsize = 13)
+    plt.ylabel("Coefficient values", fontsize = 13)
+    frame1 = plt.gca()
+    frame1.axes.xaxis.set_ticklabels([])
+    frame1.axes.yaxis.set_ticklabels([])
+    # ax.legend().set_visible(False)
+    
+    plt.show()
 
 
 
@@ -123,7 +179,8 @@ if __name__ == '__main__':
     
     # results = optimize_model2_randomCV(RandomForestClassifier(), random_forest_grid, X_train, y_train, scoring= 'roc_auc')
 
-    roc_curve_grapher(results, X_test ,y_test)
+    # roc_curve_grapher(results, X_test ,y_test)
+    beta_grapher_for_log_regressors_VIF_version(X_train, results)
 
 
 
