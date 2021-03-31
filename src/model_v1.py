@@ -43,6 +43,20 @@ def best_model_predictor(model, X_test, y_test):
     print(classification_report(y_test, y_hats))
 
 
+def roc_curve_grapher(model, X_test ,y_test):
+    yhat = model.predict_proba(X_test)
+    yhat = yhat[:, 1]
+    fpr, tpr, thresholds = roc_curve(y_test, yhat)
+    plt.plot([0,1], [0,1], linestyle='--', label='Random guess')
+    plt.plot(fpr, tpr, marker='.', label=f'Model')
+    plt.xlabel('False Positive Rate')
+    plt.ylabel('True Positive Rate')
+    plt.suptitle('Model ROC curve', fontsize=20)
+    plt.legend()
+    # plt.savefig("Logistic Regression_ROC_curve.png", dpi=200)
+    plt.show()
+
+
 
 
 
@@ -53,12 +67,21 @@ def best_model_predictor(model, X_test, y_test):
 
 
 if __name__ == '__main__':
+
+
+    X_train = pd.read_csv('/Users/cp/Documents/dsi/capstone2/capstone2/data/train_setVIF_wednesday_features.csv')
+    y_train = pd.read_csv('/Users/cp/Documents/dsi/capstone2/capstone2/data/train_setVIF_wednesday_target.csv')
+    X_test = pd.read_csv('/Users/cp/Documents/dsi/capstone2/capstone2/data/validation_setVIF_wednesday_features.csv')
+    y_test = pd.read_csv('/Users/cp/Documents/dsi/capstone2/capstone2/data/validation_setVIF_wednesday_target.csv')
+    # print(X_train.shape, y_train.shape, X_test.shape, y_test.shape)
+
+
   
 
-    X_train = pd.read_csv('/Users/cp/Documents/dsi/capstone2/capstone2/data/rna_jupyternotebook_df_wednesday.csv')
-    y_train = pd.read_csv('/Users/cp/Documents/dsi/capstone2/capstone2/data/target_death_short_col.csv')
-    X_test = pd.read_csv('/Users/cp/Documents/dsi/capstone2/capstone2/data/validation_X_set.csv')
-    y_test = pd.read_csv('/Users/cp/Documents/dsi/capstone2/capstone2/data/validation_y_set.csv')
+    # X_train = pd.read_csv('/Users/cp/Documents/dsi/capstone2/capstone2/data/rna_jupyternotebook_df_wednesday.csv')
+    # y_train = pd.read_csv('/Users/cp/Documents/dsi/capstone2/capstone2/data/target_death_short_col.csv')
+    # X_test = pd.read_csv('/Users/cp/Documents/dsi/capstone2/capstone2/data/validation_X_set.csv')
+    # y_test = pd.read_csv('/Users/cp/Documents/dsi/capstone2/capstone2/data/validation_y_set.csv')
     
     y_train = np.array(y_train).reshape(-1)
     y_test =  np.array(y_test).reshape(-1) 
@@ -99,6 +122,8 @@ if __name__ == '__main__':
     # results = optimize_model2_randomCV(GradientBoostingClassifier(), gradient_boosting_grid, X_train, y_train, scoring= 'roc_auc')
     
     # results = optimize_model2_randomCV(RandomForestClassifier(), random_forest_grid, X_train, y_train, scoring= 'roc_auc')
+
+    roc_curve_grapher(results, X_test ,y_test)
 
 
 
