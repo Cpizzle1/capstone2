@@ -33,6 +33,16 @@ def optimize_model2_randomCV(model, grid_params, X_train, y_train, scoring):
     
     return model_search.best_estimator_
 
+def best_model_predictor(model, X_test, y_test):
+
+    # logistic2_best_model = logistic2_randomsearch.best_estimator_
+    y_hats = model.predict(X_test)
+    print(f"{moodel} ROC Score = {roc_auc_score(y_test, y_hats):.3f}")
+
+
+
+
+
 
 
 
@@ -44,22 +54,23 @@ if __name__ == '__main__':
 
     X_train = pd.read_csv('/Users/cp/Documents/dsi/capstone2/capstone2/data/rna_jupyternotebook_df_wednesday.csv')
     y_train = pd.read_csv('/Users/cp/Documents/dsi/capstone2/capstone2/data/target_death_short_col.csv')
- 
+    X_test = pd.read_csv('/Users/cp/Documents/dsi/capstone2/capstone2/data/validation_X_set.csv')
+    y_test = pd.read_csv('/Users/cp/Documents/dsi/capstone2/capstone2/data/validation_y_set.csv')
+    
     y_train = np.array(y_train).reshape(-1)
+    y_test =  np.array(y_test).reshape(-1) 
+
 
     logistic2_regression_grid = {'C':[0.0305,0.03055, 0.03060, 0.03065, 0.0307, 0.03075, 0.03077]
-#                        ,'cv':[4]
-                       ,'solver':['liblinear']#'lbfgs',
-
+                       ,'solver':['liblinear']
                        ,'class_weight':['balanced']
-                       ,'penalty':['l1']} #, 'l2', 'elasticnet'
-
+                       ,'penalty':['l1']} 
+    
     logistic_regressionCV_grid = {'Cs':[2,5,10, 25, 100, 200]
                        ,'cv':[4]
-                       ,'solver':['liblinear']#'lbfgs',
-#                        ,'max_iter' : [50]
+                       ,'solver':['liblinear']
                        ,'class_weight':['balanced']
-                       ,'penalty':['l1'] #, 'l2', 'elasticnet'
+                       ,'penalty':['l1'] 
                         }
 
     random_forest_grid = {'max_depth': [2, 4, 8]
@@ -68,8 +79,7 @@ if __name__ == '__main__':
                      ,'min_samples_split': [2, 4]
                      ,'bootstrap': [True, False]
                      ,'class_weight': ['balanced']
-
-                     ,'n_estimators': [5,10,25,50,100,200]
+                    ,'n_estimators': [5,10,25,50,100,200]
                      }
                     
     gradient_boosting_grid = {'learning_rate': [0.1, 0.2, 0.3, 0.4, 0.5]
@@ -81,18 +91,11 @@ if __name__ == '__main__':
                          }
 
     
-    
-
-    
-    
-    # logistic2_randomsearch = RandomizedSearchCV(LogisticRegression()
-    #                                           ,logistic2_regression_grid
-    #                                           ,n_jobs=-1
-    #                                           ,verbose=False
-    #                                           ,scoring='roc_auc')
-
-
     results = optimize_model2_randomCV(LogisticRegression(), logistic2_regression_grid, X_train, y_train, scoring= 'roc_auc')
+    
+    # results = optimize_model2_randomCV(GradientBoostingClassifier(), gradient_boosting_grid, X_train, y_train, scoring= 'roc_auc')
+    
+    # results = optimize_model2_randomCV(RandomForestClassifier(), random_forest_grid, X_train, y_train, scoring= 'roc_auc')
 
 
 
