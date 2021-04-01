@@ -1,5 +1,5 @@
 from sklearn.model_selection import GridSearchCV, RandomizedSearchCV, train_test_split
-from sklearn.metrics import  roc_auc_score, roc_curve, auc,  accuracy_score,f1_score, accuracy_score, precision_score, recall_score, classification_report
+from sklearn.metrics import  roc_auc_score, roc_curve, auc,  accuracy_score,f1_score, accuracy_score, precision_score, recall_score, classification_report, cross_validation
 import numpy as np
 import pandas as pd 
 from sklearn.linear_model import LogisticRegression,LogisticRegressionCV, SGDClassifier
@@ -139,7 +139,7 @@ if __name__ == '__main__':
                        ,'class_weight':['balanced']
                        ,'penalty':['l1']} 
     
-    logistic_regressionCV_grid = {'Cs':[2,5,10, 25, 100, 200]
+    logistic_regressionCV_grid = {'Cs':[1,2,4,20, 60]
                        ,'cv':[4]
                        ,'solver':['liblinear']
                        ,'class_weight':['balanced']
@@ -165,6 +165,8 @@ if __name__ == '__main__':
 
     
     results = optimize_model2_randomCV(LogisticRegression(), logistic2_regression_grid, X_train, y_train, scoring= 'roc_auc')
+    
+
     best_model_predictor(results, X_test, y_test)
     
     

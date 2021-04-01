@@ -21,7 +21,7 @@ The [cBioPortal hosted by the Center of Molecular Oncology at Sloan Kettering Ca
 
 ## Exploratory Data Analysis
 
-The Molecular Taxonomy of Breast Cancer International Consortium (METABRIC) is an organization hosting a database  with clinical and genetic data from 1,904 patients and primary breast cancer samples.   A list of 489 genes are listed as feature columns and Z-scores of mRNA expression levels are listed as values. In this study, we will be focusing on the mRNA expression levels
+The Molecular Taxonomy of Breast Cancer International Consortium (METABRIC) is an organization hosting a database  with clinical and genetic data from 1,904 patients and primary breast cancer samples.   A list of 489 genes are listed as feature columns and Z-scores of mRNA expression levels are listed as values. In this study, we will be focusing on the mRNA expression levels which is exclusively numerical. The catagory of patient outcomes (living, death from other causes, and death from cancer) was recatagorized as 1:deceased due to cancer, 0:all other cases.
 
 
 ![EDA dataframe](images/EDA_df.png)
@@ -117,13 +117,13 @@ As expected, more data would help increase the prediction of the mRNA model, but
 
 8 [wikipedia](https://en.wikipedia.org/wiki/Aurora_A_kinase)
 
-9 [kaggle](https://www.kaggle.com/)
+9 [kaggle](https://www.kaggle.com/raghadalharbi/breast-cancer-gene-expression-profiles-metabric)
 
 10 [stack_overflow](https://stackoverflow.com/)
 
 11 [machine-mastert](https://machinelearningmastery.com)
 
-12 [medium_banner](https://en.wikipedia.org/wiki/Aurora_A_kinase)
+12 [medium_banner](https://medium.com/berkeleyischool/breast-cancer-genetic-testing-and-privacy-476b799e5f86)
 
 
 
