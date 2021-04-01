@@ -8,6 +8,14 @@ import pandas as pd
 import numpy as np
 
 def render_page(url):
+    """[Not involved in newest version of capstone 2 but wanted it stored somewhere for potential future use]
+
+    Args:
+        url ([website address]): [any url]
+
+    Returns:
+        [opens website with chrome driver]: 
+    """
         driver = webdriver.Chrome('/Users/cp/Downloads/chromedriver')
         driver.get(url)
         time.sleep(3)
@@ -16,6 +24,15 @@ def render_page(url):
         return r
 
 def scraper2(page, dates):
+    """[takes weather underground historial daily data and returns scraped weather data from table]
+
+    Args:
+        page ([string]): [webaddress]
+        dates ([string]): [year-month-day format]
+
+    Returns:
+        [dataframe]: [with historal table data]
+    """
     output = pd.DataFrame()
 
     for d in dates:
@@ -60,6 +77,14 @@ def scraper2(page, dates):
     return output
 
 def make_year_dates(yr= 2020):
+    """[makes string dates for year]
+
+    Args:
+        yr (int, optional): [year of desired info]. Defaults to 2020.
+
+    Returns:
+        [list]: [of string dates ]
+    """
     if yr%4 ==0:
         feb_days = 30
     else:

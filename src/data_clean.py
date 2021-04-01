@@ -24,10 +24,7 @@ def make_val_set(mrna_df, full_df):
     mrna_df = shuffle(mrna_df)
     Validation_set = mrna_df[:200]
     mrna1 = mrna_df[200:]
-    # Validation_set.to_csv(r'../data/validation_wednesday_set.csv', index = False)
-    # mrna1.to_csv(r'../data/rna_df_wednesday.csv', index = False)
-    
-    return mrna1, Validation_set
+   return mrna1, Validation_set
 
 def mutant_list_maker(df):
     """[makes separate lst of columns that are mutants]
@@ -180,19 +177,14 @@ def convert_pr_status(df):
     return df
 
 
-def column_mutant_value_counts(df):
-    for col in df.columns:
-        print(f'name: {col} \n{df[col].value_counts()}')
-def column_print(df):
-    for col in df.columns:
-        print(f'name: {col}')
+
 
 
 
 if __name__ == '__main__':
-    mrna_df =pd.read_csv('/Users/cp/Documents/dsi/capstone2/capstone2/data/capstone2.mrn_df2.csv')
-    df = pd.read_csv('/Users/cp/Documents/dsi/capstone2/capstone2/data/METABRIC_RNA_Mutation.csv')
+    # mrna_df =pd.read_csv('/Users/cp/Documents/dsi/capstone2/capstone2/data/capstone2.mrn_df2.csv')
+    # df = pd.read_csv('/Users/cp/Documents/dsi/capstone2/capstone2/data/METABRIC_RNA_Mutation.csv')
 
-    print(make_val_set(mrna_df, df))
+    pass
 
 

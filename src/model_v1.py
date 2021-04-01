@@ -7,17 +7,8 @@ from sklearn.ensemble import GradientBoostingRegressor, RandomForestClassifier,G
 from sklearn import svm
 from sklearn.tree import DecisionTreeClassifier
 import pickle
-
-# from roc import plot_roc
-
 import matplotlib.pyplot as plt
-
-
 from sklearn.svm import SVC
-
-
-
-
 
 def optimize_model2_randomCV(model, grid_params, X_train, y_train, scoring):
     """[Takes a model in, grid parameters, X and y values returns  best model found using the input parameters]
@@ -126,12 +117,6 @@ def threshold_recall_scorer(model, threshold_list):
     print(results)
 
 
-
-
-
-
-
-
 if __name__ == '__main__':
 
 
@@ -139,11 +124,7 @@ if __name__ == '__main__':
     y_train = pd.read_csv('/Users/cp/Documents/dsi/capstone2/capstone2/data/train_setVIF_wednesday_target.csv')
     X_test = pd.read_csv('/Users/cp/Documents/dsi/capstone2/capstone2/data/validation_setVIF_wednesday_features.csv')
     y_test = pd.read_csv('/Users/cp/Documents/dsi/capstone2/capstone2/data/validation_setVIF_wednesday_target.csv')
-    # print(X_train.shape, y_train.shape, X_test.shape, y_test.shape)
-
-
   
-
     # X_train = pd.read_csv('/Users/cp/Documents/dsi/capstone2/capstone2/data/rna_jupyternotebook_df_wednesday.csv')
     # y_train = pd.read_csv('/Users/cp/Documents/dsi/capstone2/capstone2/data/target_death_short_col.csv')
     # X_test = pd.read_csv('/Users/cp/Documents/dsi/capstone2/capstone2/data/validation_X_set.csv')
@@ -185,15 +166,18 @@ if __name__ == '__main__':
     
     results = optimize_model2_randomCV(LogisticRegression(), logistic2_regression_grid, X_train, y_train, scoring= 'roc_auc')
     best_model_predictor(results, X_test, y_test)
-    # results = optimize_model2_randomCV(GradientBoostingClassifier(), gradient_boosting_grid, X_train, y_train, scoring= 'roc_auc')
     
+    
+    # results = optimize_model2_randomCV(GradientBoostingClassifier(), gradient_boosting_grid, X_train, y_train, scoring= 'roc_auc')
     # results = optimize_model2_randomCV(RandomForestClassifier(), random_forest_grid, X_train, y_train, scoring= 'roc_auc')
-
-    roc_curve_grapher(results, X_test ,y_test)
+    # roc_curve_grapher(results, X_test ,y_test)
     # beta_grapher_for_log_regressors_VIF_version(X_train, results)
     
     thresholds = [.2, .25, .3, .33, .35, .37, .38, 0.5]
     threshold_recall_scorer(results, thresholds)
+    
+    # filename = 'logistical_regressor_final.sav'
+    # pickle.dump(results, open(filename, 'wb'))
 
 
 
