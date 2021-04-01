@@ -34,7 +34,7 @@ Of the 1,904 patients, 622 were classfied as deceased due to cancer, and as a gr
 
 ![cancer death probabilty](images/probability_density_cancer_death_non_cancer_death.png)
 
-Patients tend to be multi-hit events in both classse (mutiple mutations)
+Patients tend to be multi-hit events in both classes (mutiple mutations)
 
 ![mutation count](images/Mutation_count.png)
 
@@ -50,15 +50,19 @@ Best Parameters for Model: penalty = l1, class weight = 'balanced', C = 0.03077
 Best Score for LogisticRegression: 0.6678
 
 ### With threshold value lowered to 0.3, recall score climbs to 94%
-<p style="text-align: center;">Gene Coefficients in model importance </p>
+
+
+
+## Gene Coefficients in Lasso regularized Model
 
 
 ![Gene Weights](images/Gene_Betas.png)
 
-Abnormal STAT5 activity has been shown to be closely connected to a wide range of human cancers,[4] and silencing this aberrant activity is an area of active research in medicinal chemistry.[5]
+* STAT5 gene could potentially be invovled in a protective pathway.
+* Abnormal STAT5 activity has been shown to be closely connected to a wide range of human cancers,[4] and silencing this aberrant activity is an area of active research in medicinal chemistry.[5]
 
 
-BAD gene (bcl2) is family of regulators involved in programmed cell death(apoptosis).
+* BAD gene (bcl2) is family of regulators involved in programmed cell death(apoptosis) and has been involved in many studies about cancer and disease states.
 
 
 
@@ -83,7 +87,7 @@ Synnove et al. published in Oncology Reports an article in 2010 suggesting that 
 
 ## Future Directions :
 
-As expected, more data would help increase the prediction of the mRNA model, but also, finding a way to incorporate the clinical and gene specific mutation data to increase model accuracy/recall scores would be a potential future goal.  Potentially, using this general model to use on other disease states would be another future project.
+As expected, more data would help increase the prediction of the mRNA model, but also, finding a way to incorporate the clinical and gene specific mutation data to increase model accuracy/recall scores would be a potential future goal.  Potentially, using this general model to use on other disease states would be another future project and creating a pipeline to pymol and autodock software.
 
 
 ## Acknowledgements
