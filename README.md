@@ -59,6 +59,9 @@ Best Score for LogisticRegression: 0.6678
 ### With threshold value lowered to 0.3, recall score climbs to 94%
 
 
+![performance table](images/perform_table.png)
+
+
 
 ## Gene Coefficients in Lasso regularized Model
 
