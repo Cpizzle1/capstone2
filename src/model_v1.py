@@ -45,7 +45,7 @@ def best_model_predictor(model, X_test, y_test):
         y_test ([numpy array]): [target valudation data]
     """
 
-    # logistic2_best_model = logistic2_randomsearch.best_estimator_
+    
     y_hats = model.predict(X_test)
     print(f"{model} ROC Score = {roc_auc_score(y_test, y_hats):.3f}")
     print(f"{model} F1 Score = {f1_score(y_test, y_hats):.3f}")
@@ -71,7 +71,7 @@ def roc_curve_grapher(model, X_test ,y_test):
     plt.ylabel('True Positive Rate')
     plt.suptitle('Model ROC curve', fontsize=20)
     plt.legend()
-    # plt.savefig("Logistic Regression_ROC_curve.png", dpi=200)
+    plt.savefig("Logistic Regression_ROC_curve.png", dpi=200)
     plt.show()
 
 def beta_grapher_for_log_regressors_VIF_version(df, model):
@@ -100,7 +100,7 @@ def beta_grapher_for_log_regressors_VIF_version(df, model):
     frame1 = plt.gca()
     frame1.axes.xaxis.set_ticklabels([])
     frame1.axes.yaxis.set_ticklabels([])
-    # ax.legend().set_visible(False)
+   
     
     plt.show()
 

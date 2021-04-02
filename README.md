@@ -98,9 +98,14 @@ Synnove et al. published in Oncology Reports an article in 2010 suggesting that 
 
 ## Future Directions :
 
+* Unsupervised gene clustering
+* Incorporate clinical data
+* Research Genes of interest
+
+
 As expected, more data would help increase the prediction of the mRNA model, but also, finding a way to incorporate the clinical and gene specific mutation data to increase model accuracy/recall scores would be a potential future goal.  Potentially, using this general model to use on other disease states would be another future project and creating a pipeline to pymol and autodock software. Another avenue to pursue would be to create an app that would allow a user to input their clinical data, once the clinical data has been incoporated for a model prediction and prognosis of their condition.
 
-git c
+
 ## Acknowledgements
 * DSI Denver staff/cohort
 * Kayla Thomas
