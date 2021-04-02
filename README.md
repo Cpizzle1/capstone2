@@ -40,6 +40,13 @@ Patients tend to be multi-hit events in both classes (mutiple mutations)
 
 
 ## Modeling 
+
+Baseline Model: Logistic Regressor
+    untuned model performs poorly
+
+![Base Model](images/Base_Model_Report.png)
+
+
 Logistic Regressor model proformance after tuning.
 
 
