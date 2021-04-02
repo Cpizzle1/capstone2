@@ -3,6 +3,15 @@ import pandas as pd
 
 
 def calculate_vif_(X, thresh=5.0):
+    """[drops columns of dataframe if VIF is above threshold]
+
+    Args:
+        X ([dataframe]): [pandas dataframe]
+        thresh (float, optional): [Threshold VIF value to drop columns unti reached]. Defaults to 5.0.
+
+    Returns:
+        [dataframe]: [dataframe with columns of high multicolinarity dropped]
+    """
     variables = list(range(X.shape[1]))
     dropped = True
     while dropped:
