@@ -58,11 +58,12 @@ Best Score for LogisticRegression: 0.6678
 
 ![Gene Weights](images/Gene_Betas.png)
 
-[STAT5](https://pubmed.ncbi.nlm.nih.gov/23161573/) gene could potentially be invovled in a protective pathway according to pubmed [article](https://pubmed.ncbi.nlm.nih.gov/23161573/).
+[STAT5](https://pubmed.ncbi.nlm.nih.gov/23161573/) gene could potentially be invovled in a protective pathway according to pubmed [article](https://pubmed.ncbi.nlm.nih.gov/23161573/) would correlate with findings in this study.
+
 * Abnormal STAT5 activity has been shown to be closely connected to a wide range of human cancers,[4] and silencing this aberrant activity is an area of active research in medicinal chemistry.[5]
 
 
-* BAD gene (bcl2) is family of regulators involved in programmed cell death(apoptosis) and has been involved in many studies about cancer and disease states.
+[BAD](https://www.ncbi.nlm.nih.gov/gene?Db=gene&Cmd=DetailsSearch&Term=572) gene (bcl2) is family of regulators involved in programmed cell death(apoptosis) and has been involved in many studies about cancer and disease states.
 
 
 
@@ -89,7 +90,7 @@ Synnove et al. published in Oncology Reports an article in 2010 suggesting that 
 
 As expected, more data would help increase the prediction of the mRNA model, but also, finding a way to incorporate the clinical and gene specific mutation data to increase model accuracy/recall scores would be a potential future goal.  Potentially, using this general model to use on other disease states would be another future project and creating a pipeline to pymol and autodock software. Another avenue to pursue would be to create an app that would allow a user to input their clinical data, once the clinical data has been incoporated for a model prediction and prognosis of their condition.
 
-
+git c
 ## Acknowledgements
 * DSI Denver staff/cohort
 * Kayla Thomas
