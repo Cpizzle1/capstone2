@@ -1,5 +1,5 @@
 from sklearn.model_selection import GridSearchCV, RandomizedSearchCV, train_test_split
-from sklearn.metrics import  roc_auc_score, roc_curve, auc,  accuracy_score,f1_score, accuracy_score, precision_score, recall_score, classification_report, cross_validation
+from sklearn.metrics import  roc_auc_score, roc_curve, auc,  accuracy_score,f1_score, accuracy_score, precision_score, recall_score, classification_report
 import numpy as np
 import pandas as pd 
 from sklearn.linear_model import LogisticRegression,LogisticRegressionCV, SGDClassifier
@@ -139,7 +139,7 @@ if __name__ == '__main__':
                        ,'class_weight':['balanced']
                        ,'penalty':['l1']} 
     
-    logistic_regressionCV_grid = {'Cs':[1,2,4,20, 60]
+    logistic_regressionCV_grid = {'Cs':[1,2,4,29]
                        ,'cv':[4]
                        ,'solver':['liblinear']
                        ,'class_weight':['balanced']
@@ -175,7 +175,7 @@ if __name__ == '__main__':
     # roc_curve_grapher(results, X_test ,y_test)
     # beta_grapher_for_log_regressors_VIF_version(X_train, results)
     
-    thresholds = [.2, .25, .3, .33, .35, .37, .38, 0.5]
+    thresholds = [0.1,.2, .25, .3, .33, .35, .37, .38, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0 ]
     threshold_recall_scorer(results, thresholds)
     
     # filename = 'logistical_regressor_final.sav'

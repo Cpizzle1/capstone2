@@ -21,7 +21,7 @@ The [cBioPortal hosted by the Center of Molecular Oncology at Sloan Kettering Ca
 
 ## Exploratory Data Analysis
 
-The Molecular Taxonomy of Breast Cancer International Consortium (METABRIC) is an organization hosting a database  with clinical and genetic data from 1,904 patients and primary breast cancer samples.   A list of 489 genes are listed as feature columns and Z-scores of mRNA expression levels are listed as values. In this study, we will be focusing on the mRNA expression levels which is exclusively numerical. The catagory of patient outcomes (living, death from other causes, and death from cancer) was recatagorized as 1:deceased due to cancer, 0:all other cases.
+The Molecular Taxonomy of Breast Cancer International Consortium (METABRIC) is an organization hosting a database  with clinical and genetic data from 1,904 patients and primary breast cancer samples.   A list of 489 genes are listed as feature columns and Z-scores of mRNA expression levels are listed as values from RNA-seq collection. In this study, we will be focusing on the mRNA expression levels which is exclusively numerical. The catagory of patient outcomes (living, death from other causes, and death from cancer) was recatagorized as 1:deceased due to cancer, 0:all other cases.
 
 
 ![EDA dataframe](images/EDA_df.png)
@@ -58,7 +58,7 @@ Best Score for LogisticRegression: 0.6678
 
 ![Gene Weights](images/Gene_Betas.png)
 
-* STAT5 gene could potentially be invovled in a protective pathway.
+[STAT5](https://pubmed.ncbi.nlm.nih.gov/23161573/) gene could potentially be invovled in a protective pathway according to pubmed [article](https://pubmed.ncbi.nlm.nih.gov/23161573/).
 * Abnormal STAT5 activity has been shown to be closely connected to a wide range of human cancers,[4] and silencing this aberrant activity is an area of active research in medicinal chemistry.[5]
 
 
@@ -87,7 +87,7 @@ Synnove et al. published in Oncology Reports an article in 2010 suggesting that 
 
 ## Future Directions :
 
-As expected, more data would help increase the prediction of the mRNA model, but also, finding a way to incorporate the clinical and gene specific mutation data to increase model accuracy/recall scores would be a potential future goal.  Potentially, using this general model to use on other disease states would be another future project and creating a pipeline to pymol and autodock software.
+As expected, more data would help increase the prediction of the mRNA model, but also, finding a way to incorporate the clinical and gene specific mutation data to increase model accuracy/recall scores would be a potential future goal.  Potentially, using this general model to use on other disease states would be another future project and creating a pipeline to pymol and autodock software. Another avenue to pursue would be to create an app that would allow a user to input their clinical data, once the clinical data has been incoporated for a model prediction and prognosis of their condition.
 
 
 ## Acknowledgements
